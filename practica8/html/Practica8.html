@@ -1,0 +1,352 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Practica8</title><meta name="generator" content="MATLAB 9.8"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-06-20"><meta name="DC.source" content="Practica8.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1></h1><!--introduction--><p><img vspace="5" hspace="5" src="portada8.png" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#3">Desarrollo ejercicio 1</a></li><li><a href="#4">Ejercicio 1.a. La soluci&oacute;n anal&iacute;tica mediante transformada de laplace, puede ayudarse de programas previos</a></li><li><a href="#5">Ejercicio 1.b.  La gr&aacute;fica de la soluci&oacute;n anal&iacute;tica, puede presentar diferentes intervalos en la grafica y acercamientos a la gr&aacute;fica seg&uacute;n considere necesario.</a></li><li><a href="#6">Ejercicio 1.c.  El diagrama de la para Simulink, indicando en caso de que no sea claro, el valor de cada par&aacute;metro en Simulink, por ejemplo, reportar las condiciones Iniciales de simulaci&oacute;n ya que no son visibles a simple vista desde el esquema inplementado.</a></li><li><a href="#7">Ejercicio 1.d. La grafica de la soluci&oacute;n en Simulink, puede presentar diferentes intervalos en la grafica y acercamientos a la gr&aacute;fica seg&uacute;n considere necesario.</a></li><li><a href="#8">Ejercicio 1.e. La gr&aacute;fica, en la misma figura, de la Simulaci&oacute;n y la soluci&oacute;n anal&iacute;tica.</a></li><li><a href="#9">1.1.a.  La soluci&oacute;n anal&iacute;tica mediante transformada de laplace, puede ayudarse de programas previos</a></li><li><a href="#10">1.1.b. La gr&aacute;fica de la soluci&oacute;n anal&iacute;tica, puede presentar diferentes intervalos en la grafica y acercamientos a la gr&aacute;fica seg&uacute;n considere necesario.</a></li><li><a href="#11">1.1.c.  El diagrama de la para Simulink, indicando en caso de que no sea claro, el valor de cada par&aacute;metro en Simulink, por ejemplo, reportar las condiciones Iniciales de simulaci&oacute;n ya que no son visibles a simple vista desde el esquema inplementado.</a></li><li><a href="#12">1.1.d. La grafica de la soluci&oacute;n en Simulink, puede presentar diferentes intervalos en la grafica y acercamientos a la gr&aacute;fica seg&uacute;n considere necesario.</a></li><li><a href="#13">1.1.e. La gr&aacute;fica, en la misma figura, de la Simulaci&oacute;n y la soluci&oacute;n anal&iacute;tica.</a></li><li><a href="#14">Ejercicio 3. Accurate Zero-Crossing Detection</a></li></ul></div><p>% %%</p><p>Objetivos</p><div><ul><li>Conocer Simulink</li><li>Implementar simulaciones de ecuaciones diferenciales en Simulink</li></ul></div><h2 id="3">Desarrollo ejercicio 1</h2><h2 id="4">Ejercicio 1.a. La soluci&oacute;n anal&iacute;tica mediante transformada de laplace, puede ayudarse de programas previos</h2><p>Para el este problema utilizo un programa que previamente fue realizado en una pr&aacute;ctica(anexo c&oacute;digo al final).</p><p><img vspace="5" hspace="5" src="1a.png" alt=""> </p><p><img vspace="5" hspace="5" src="1b.png" alt=""> </p><h2 id="5">Ejercicio 1.b.  La gr&aacute;fica de la soluci&oacute;n anal&iacute;tica, puede presentar diferentes intervalos en la grafica y acercamientos a la gr&aacute;fica seg&uacute;n considere necesario.</h2><pre>El acercamiento que propongo se me hace el correcto por el hecho de que
+un poco despues del dos se repite la misma gr&aacute;fica.</pre><p><img vspace="5" hspace="5" src="1c.png" alt=""> </p><h2 id="6">Ejercicio 1.c.  El diagrama de la para Simulink, indicando en caso de que no sea claro, el valor de cada par&aacute;metro en Simulink, por ejemplo, reportar las condiciones Iniciales de simulaci&oacute;n ya que no son visibles a simple vista desde el esquema inplementado.</h2><p>A continuaci&oacute;n expongo el diagrama con el cual se realiza la simulaci&oacute;n en Simulink.</p><p><img vspace="5" hspace="5" src="diagrama.png" alt=""> </p><pre>Para esta simulaci&oacute;n colocamos los dos integradores, los cuales tienen
+las siguientes condiciones iniciales:</pre><p><img vspace="5" hspace="5" src="condiciones.png" alt=""> </p><p>Tambi&eacute;n, como se ve en im&aacute;genes pasadas, tenemos una funci&oacute;n que es nuestra entrada. Esta es una funci&oacute;n con 'u' como variable y que se muestra en la siguiente figura:</p><p><img vspace="5" hspace="5" src="funcion.png" alt=""> </p><h2 id="7">Ejercicio 1.d. La grafica de la soluci&oacute;n en Simulink, puede presentar diferentes intervalos en la grafica y acercamientos a la gr&aacute;fica seg&uacute;n considere necesario.</h2><p>En este punto, una vez construido el diagrama en Simulink, podemos ver una gr&aacute;fica que se aprecia en la siguiente im&aacute;gen:</p><p><img vspace="5" hspace="5" src="grafica.png" alt=""> </p><h2 id="8">Ejercicio 1.e. La gr&aacute;fica, en la misma figura, de la Simulaci&oacute;n y la soluci&oacute;n anal&iacute;tica.</h2><p>En este punto s&oacute;lo queda ver la comparaci&oacute;n de ambas gr&aacute;ficas, ya que, en caso de haber hecho bien la simulaci&oacute;n, las dos gr&aacute;ficas se observan casi iguales. En este caso, si se logr&oacute; que se vieran encimadas las gr&aacute;ficas. Primero observamos que tenemos una nueva salida, en el bloque de entrada se coloca la respuesta anal&iacute;tica.</p><p><img vspace="5" hspace="5" src="diagrama2.png" alt=""> </p><p>Esta es la entrada de la respuesta anal&iacute;tica que previamente se sac&oacute;, que se ve diferente debido al formato que se debe colocar en Simulink.</p><p><img vspace="5" hspace="5" src="entradaAnal%C3%ADtica.png" alt=""> </p><p>Ahora veamos la salida que sale a la hora de simular:</p><p><img vspace="5" hspace="5" src="dosGraficas.png" alt=""> </p><p>Nuevamente se menciona que quiz&aacute;s parezca que s&oacute;lo hay una sola saida, pero si se hace el zoom suficiente se pueden apreciar ambas, la anal&iacute;tica y la num&eacute;rica.</p><p><img vspace="5" hspace="5" src="acercamiento.png" alt=""> </p><h2 id="9">1.1.a.  La soluci&oacute;n anal&iacute;tica mediante transformada de laplace, puede ayudarse de programas previos</h2><p>Nuevamente para este sistema se vuelve a utilizar un c&oacute;digo previamente visto en pr&aacute;cticas anteriores con el cual se obtiene la respuesta anal&iacute;tica y la gr&aacute;fica donde se encuentra la entrada y la salida.</p><p><img vspace="5" hspace="5" src="codigo2.png" alt=""> </p><p><img vspace="5" hspace="5" src="codigo2a.png" alt=""> </p><p><img vspace="5" hspace="5" src="nueva.png" alt=""> </p><h2 id="10">1.1.b. La gr&aacute;fica de la soluci&oacute;n anal&iacute;tica, puede presentar diferentes intervalos en la grafica y acercamientos a la gr&aacute;fica seg&uacute;n considere necesario.</h2><p>Del proceso anterior obtenemos la siguiente grafica:</p><p><img vspace="5" hspace="5" src="grafica2.png" alt=""> </p><p>Vemos que son los exponenciales negativos los que hacen que mientras el tiempo aumente, &eacute;ste tiende a cero.</p><h2 id="11">1.1.c.  El diagrama de la para Simulink, indicando en caso de que no sea claro, el valor de cada par&aacute;metro en Simulink, por ejemplo, reportar las condiciones Iniciales de simulaci&oacute;n ya que no son visibles a simple vista desde el esquema inplementado.</h2><p>El diagrama que representa este sistema es el siguiente:</p><p><img vspace="5" hspace="5" src="diagramaE.png" alt=""> </p><p>Como el programa a simple vista no permite mostrar las condiciones iniciales y la funci&oacute;n de entrada, se muestran a continucaci&oacute;n.</p><p>Primera la funci&oacute;n de entrada que posteriormente se le realiza una derivada.</p><p><img vspace="5" hspace="5" src="escalon.png" alt=""> </p><p>Ahora observamos que para &eacute;ste sistema encontramos que las condiciones despues de cero o <img src="Practica8_eq05596178284428143069.png" alt="$0^+$"> son uno.</p><p><img vspace="5" hspace="5" src="ceromas.png" alt=""> </p><h2 id="12">1.1.d. La grafica de la soluci&oacute;n en Simulink, puede presentar diferentes intervalos en la grafica y acercamientos a la gr&aacute;fica seg&uacute;n considere necesario.</h2><pre>Ahora se corre la simulaci&oacute;n del diagrama que realizamos y observamos
+que nos arroja la gr&aacute;fica de la salida de nuestro sistema:</pre><p><img vspace="5" hspace="5" src="graficaE.png" alt=""> </p><h2 id="13">1.1.e. La gr&aacute;fica, en la misma figura, de la Simulaci&oacute;n y la soluci&oacute;n anal&iacute;tica.</h2><p>El objetivo en este punto es que la gr&aacute;fica pasada que fue obtenida numericamente y la grafica que se sac&oacute; anal&iacute;ticamente tienen que asemejarse mucho, al punto de parecer iguales. Esta comparativa se realiza agregando una nueva entrada que es la respuesta anal&iacute;tica y, por lo tanto, obtenemos una segunda salida.</p><p>Aqu&iacute; tenemos como se ve el diagrama con la entrada que se mencion&oacute;.</p><p><img vspace="5" hspace="5" src="dosEntradas.png" alt=""> </p><p><img vspace="5" hspace="5" src="entrada.png" alt=""> </p><p>una vez visto el diagrama que se necesita recrear, se muestran las dos salidas.</p><p><img vspace="5" hspace="5" src="dosE.png" alt=""> </p><p>Nuevamente se logra que se parezcan mucho, eso quiere decir que el proceso est&aacute; bien hecho. Podemos verificar que acercandonos lo suficiente podemos observar que si son dos salidas.</p><p><img vspace="5" hspace="5" src="acercar.png" alt=""> </p><h2 id="14">Ejercicio 3. Accurate Zero-Crossing Detection</h2><p>La aplicaci&oacute;n elegida comienza con una entrada que es una onda senosoidal la ccual se suministra en trees pares; La primera pasa directo en una operaci&oacute;n simultarea con una segunda se&ntilde;al que pasa por un proceso. El segundo destino de la onda senosoidal de entrada es un bloque de valor absoluto, eso quiere decir que solo vamos a contar con los ciclos positivos de la entrada. Por ultimo la se&ntilde;al enntra a un bloque de saturacion que reduce la se&ntilde;al a un limite intefior y superior de -+.6.</p><p>La Salida del valor absoluto y el bloque de saturacion van al mismo tiempo a un bloque de conmutaci&oacute;n, este bloque esta por defecto dejando pasar &uacute;nicamente a la se&ntilde;al con valor absoluto pero tiene un pulso que uando se activa deja a la se&ntilde;al que tenia y ahora deja pasar &uacute;nicamente a la salida del bloque de saturaci&oacute;n. El pulso se activa cuando una condicio&ntilde; se cumple, en este caso, eso pasa cuando el tiempo supera los 5 segundos, despues de eso se reinicia el conteo.</p><p>Cada momento el bloque de conmutaic&oacute;n proporciona una de las dos salidas en paralelo con la se&ntilde;al senosoidal que no sufrio cambios, esto con el fin de que se aprecie en la salida las transformaci&oacute;n a lo largo de un ciclo que se cumple a los 10 segundos.</p><p>Se puede ver que pasando el segundo 5 la se&ntilde;al hace un cambio inmediato a la se&ntilde;al saturada. El ciclo se volvera a repetir despues de eso.</p><p><img vspace="5" hspace="5" src="ejemplo.png" alt=""> </p><p><img vspace="5" hspace="5" src="salidaE.png" alt=""> </p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% 
+% 
+% <<portada8.png>>
+% 
+%%
+% % %%
+%
+% Objetivos
+%%
+%
+% * Conocer Simulink
+% * Implementar simulaciones de ecuaciones diferenciales en Simulink
+%
+%% Desarrollo ejercicio 1 
+%% Ejercicio 1.a. La solución analítica mediante transformada de laplace, puede ayudarse de programas previos
+% Para el este problema utilizo un programa que previamente fue realizado
+% en una práctica(anexo código al final).
+%
+% 
+% <<1a.png>>
+%
+%
+% <<1b.png>>
+%
+%
+%
+%% Ejercicio 1.b.  La gráfica de la solución analítica, puede presentar diferentes intervalos en la grafica y acercamientos a la gráfica según considere necesario.
+%  
+%  El acercamiento que propongo se me hace el correcto por el hecho de que
+%  un poco despues del dos se repite la misma gráfica.
+%
+%
+%  
+% 
+% <<1c.png>>
+% 
+%
+%  
+%% Ejercicio 1.c.  El diagrama de la para Simulink, indicando en caso de que no sea claro, el valor de cada parámetro en Simulink, por ejemplo, reportar las condiciones Iniciales de simulación ya que no son visibles a simple vista desde el esquema inplementado.
+% A continuación expongo el diagrama con el cual se realiza la simulación
+% en Simulink. 
+%
+%
+% 
+% <<diagrama.png>>
+% 
+%  Para esta simulación colocamos los dos integradores, los cuales tienen
+%  las siguientes condiciones iniciales:
+%
+% 
+% 
+% <<condiciones.png>>
+% 
+% También, como se ve en imágenes pasadas, tenemos una función que es
+% nuestra entrada. Esta es una función con 'u' como variable y que se
+% muestra en la siguiente figura:
+%
+%
+% 
+% 
+% <<funcion.png>>
+% 
+%
+%% Ejercicio 1.d. La grafica de la solución en Simulink, puede presentar diferentes intervalos en la grafica y acercamientos a la gráfica según considere necesario.
+% En este punto, una vez construido el diagrama en Simulink, podemos ver una
+% gráfica que se aprecia en la siguiente imágen:
+%
+%
+%
+% 
+% <<grafica.png>>
+% 
+%
+%% Ejercicio 1.e. La gráfica, en la misma figura, de la Simulación y la solución analítica.
+% En este punto sólo queda ver la comparación de ambas gráficas, ya que, en
+% caso de haber hecho bien la simulación, las dos gráficas se observan casi
+% iguales. En este caso, si se logró que se vieran encimadas las gráficas.
+% Primero observamos que tenemos una nueva salida, en el bloque de entrada
+% se coloca la respuesta analítica.
+%
+% 
+% 
+% <<diagrama2.png>>
+% 
+% Esta es la entrada de la respuesta analítica que previamente se sacó, que
+% se ve diferente debido al formato que se debe colocar en Simulink.
+% 
+% 
+% <<entradaAnalítica.png>>
+%
+% Ahora veamos la salida que sale a la hora de simular:
+%
+%
+% 
+% 
+% <<dosGraficas.png>>
+% 
+% Nuevamente se menciona que quizás parezca que sólo hay una sola saida,
+% pero si se hace el zoom suficiente se pueden apreciar ambas, la analítica
+% y la numérica.
+%
+%
+%
+% 
+% <<acercamiento.png>>
+% 
+%
+%% 1.1.a.  La solución analítica mediante transformada de laplace, puede ayudarse de programas previos
+% Nuevamente para este sistema se vuelve a utilizar un código previamente
+% visto en prácticas anteriores con el cual se obtiene la respuesta
+% analítica y la gráfica donde se encuentra la entrada y la salida.
+%
+%
+% 
+% <<codigo2.png>>
+% 
+%
+%
+% <<codigo2a.png>>
+%
+%
+%
+% <<nueva.png>>
+%
+%
+% 
+%% 1.1.b. La gráfica de la solución analítica, puede presentar diferentes intervalos en la grafica y acercamientos a la gráfica según considere necesario.
+% Del proceso anterior obtenemos la siguiente grafica:
+%
+%
+% 
+% <<grafica2.png>>
+% 
+% Vemos que son los exponenciales negativos los que hacen que mientras el
+% tiempo aumente, éste tiende a cero.
+%
+%
+%
+%
+%% 1.1.c.  El diagrama de la para Simulink, indicando en caso de que no sea claro, el valor de cada parámetro en Simulink, por ejemplo, reportar las condiciones Iniciales de simulación ya que no son visibles a simple vista desde el esquema inplementado.
+% 
+% El diagrama que representa este sistema es el siguiente:
+%
+%
+% 
+% 
+% <<diagramaE.png>>
+% 
+% Como el programa a simple vista no permite mostrar las condiciones
+% iniciales y la función de entrada, se muestran a continucación.
+%
+% Primera la función de entrada que posteriormente se le realiza una
+% derivada.
+%
+%
+%
+%
+% 
+% <<escalon.png>>
+% 
+% Ahora observamos que para éste sistema encontramos que las condiciones
+% despues de cero o $0^+$ son uno.
+%
+%
+%
+%
+% 
+% <<ceromas.png>>
+% 
+%
+% 
+%% 1.1.d. La grafica de la solución en Simulink, puede presentar diferentes intervalos en la grafica y acercamientos a la gráfica según considere necesario.
+% 
+%  Ahora se corre la simulación del diagrama que realizamos y observamos
+%  que nos arroja la gráfica de la salida de nuestro sistema:
+%
+%   
+% 
+% <<graficaE.png>>
+% 
+%
+%
+%% 1.1.e. La gráfica, en la misma figura, de la Simulación y la solución analítica.
+% 
+% El objetivo en este punto es que la gráfica pasada que fue obtenida
+% numericamente y la grafica que se sacó analíticamente tienen que
+% asemejarse mucho, al punto de parecer iguales. Esta comparativa se
+% realiza agregando una nueva entrada que es la respuesta analítica y, por
+% lo tanto, obtenemos una segunda salida.
+%
+% Aquí tenemos como se ve el diagrama con la entrada que se mencionó.
+% 
+% <<dosEntradas.png>>
+% 
+% 
+% 
+% <<entrada.png>>
+% 
+% una vez visto el diagrama que se necesita recrear, se muestran las dos
+% salidas.
+%
+% 
+% 
+% <<dosE.png>>
+% 
+%
+% Nuevamente se logra que se parezcan mucho, eso quiere decir que el
+% proceso está bien hecho. Podemos verificar que acercandonos lo suficiente
+% podemos observar que si son dos salidas.
+%
+%
+% 
+% 
+% <<acercar.png>>
+% 
+% 
+%% Ejercicio 3. Accurate Zero-Crossing Detection
+% 
+% La aplicación elegida comienza con una entrada que es una onda senosoidal
+% la ccual se suministra en trees pares; La primera pasa directo en una
+% operación simultarea con una segunda señal que pasa por un proceso. El
+% segundo destino de la onda senosoidal de entrada es un bloque de valor
+% absoluto, eso quiere decir que solo vamos a contar con los ciclos
+% positivos de la entrada. Por ultimo la señal enntra a un bloque de
+% saturacion que reduce la señal a un limite intefior y superior de -+.6.
+% 
+% La Salida del valor absoluto y el bloque de saturacion van al mismo
+% tiempo a un bloque de conmutación, este bloque esta por defecto dejando
+% pasar únicamente a la señal con valor absoluto pero tiene un pulso que
+% uando se activa deja a la señal que tenia y ahora deja pasar únicamente a
+% la salida del bloque de saturación. El pulso se activa cuando una
+% condicioñ se cumple, en este caso, eso pasa cuando el tiempo supera los 5
+% segundos, despues de eso se reinicia el conteo.
+%
+% Cada momento el bloque de conmutaicón proporciona una de las dos salidas
+% en paralelo con la señal senosoidal que no sufrio cambios, esto con el
+% fin de que se aprecie en la salida las transformación a lo largo de un
+% ciclo que se cumple a los 10 segundos.
+%
+%
+% Se puede ver que pasando el segundo 5 la señal hace un cambio inmediato a
+% la señal saturada. El ciclo se volvera a repetir despues de eso.
+%
+%
+% 
+% 
+% <<ejemplo.png>>
+% 
+%  
+% 
+% <<salidaE.png>>
+% 
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>
